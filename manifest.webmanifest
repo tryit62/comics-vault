@@ -1,0 +1,1 @@
+{"name": "Comic Vault", "short_name": "Comic Vault", "start_url": "./", "display": "standalone", "background_color": "#090b10", "theme_color": "#090b10", "icons": [{"src": "./comic-vault-icon.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable"}]}
