@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#090b10">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Comic Vault">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon-180.png?v=21">
+  <link rel="stylesheet" href="style.css">
+  <title>Comic Vault</title>
+</head>
+<body>
+<header>
+  <div class="brand">COMIC <b>VAULT</b></div>
+  <button id="addTop">＋ Ajouter</button>
+</header>
+
+<nav>
+  <button data-view="home" class="active">⌂<span>Accueil</span></button>
+  <button data-view="collection">▦<span>Collection</span></button>
+  <button data-view="search">⌕<span>Recherche</span></button>
+  <button data-view="favorites">★<span>Favoris</span></button>
+  <button data-view="settings">⚙<span>Réglages</span></button>
+</nav>
+
+<main>
+  <section id="home" class="view active">
+    <h1>Ma collection</h1>
+    <div class="stats">
+      <div><strong id="sTotal">0</strong><small>Comics</small></div>
+      <div><strong id="sRead">0</strong><small>Lus</small></div>
+      <div><strong id="sUnread">0</strong><small>À lire</small></div>
+      <div><strong id="sFav">0</strong><small>Favoris</small></div>
+    </div>
+    <div class="hero">
+      <div>
+        <h2>Bienvenue dans ton Vault.</h2>
+        <p>Ajoute un comics, note-le et retrouve instantanément son emplacement.</p>
+      </div>
+      <button id="addHero">Ajouter mon premier comics</button>
+    </div>
+    <h2>Ajouts récents</h2>
+    <div id="recent" class="grid"></div>
+  </section>
+
+  <section id="collection" class="view">
+    <div class="sectionHead"><h1>Collection</h1><button id="addCollection">＋ Ajouter</button></div>
+    <div id="collectionGrid" class="grid"></div>
+  </section>
+
+  <section id="search" class="view">
+    <h1>Recherche</h1>
+    <input id="searchInput" class="search" placeholder="Titre, personnage, auteur, mot-clé, emplacement…">
+    <div id="searchGrid" class="grid"></div>
+  </section>
+
+  <section id="favorites" class="view">
+    <h1>Favoris</h1>
+    <div id="favGrid" class="grid"></div>
+  </section>
+
+  <section id="settings" class="view">
+    <h1>Réglages & sauvegarde</h1>
+    <div class="panel">
+      <h2>Sauvegarder ta collection</h2>
+      <p>Exporte régulièrement ta collection. Le fichier JSON contient toutes tes fiches (hors images très volumineuses).</p>
+      <div class="row"><button id="exportBtn">Exporter</button><label class="button">Importer<input id="importFile" type="file" accept=".json,application/json" hidden></label></div>
+    </div>
+    <div class="panel">
+      <h2>Installation sur iPad</h2>
+      <p>Une fois le site publié en HTTPS : ouvre-le dans Safari → Partager → Sur l’écran d’accueil.</p>
+    </div>
+  </section>
+</main>
+
+<dialog id="editor">
+  <form id="comicForm">
+    <div class="modalHead"><h2 id="formTitle">Ajouter un comics</h2><button type="button" id="closeModal" class="ghost">✕</button></div>
+    <input type="hidden" id="comicId">
+    <div class="coverPicker">
+      <img id="coverPreview" alt="">
+      <label class="button">📷 Couverture<input id="cover" type="file" accept="image/*" capture="environment" hidden></label>
+    </div>
+    <div class="formGrid">
+      <label>Titre*<input id="title" required></label>
+      <label>Série<input id="series"></label>
+      <label>Tome / numéro<input id="issue"></label>
+      <label>Éditeur<input id="publisher"></label>
+      <label>Année<input id="year" inputmode="numeric"></label>
+      <label>ISBN / code-barres<input id="isbn" inputmode="numeric"></label>
+      <label>Scénariste<input id="writer"></label>
+      <label>Dessinateur<input id="artist"></label>
+      <label>Statut<select id="status"><option>À lire</option><option>En cours</option><option>Lu</option></select></label>
+      <label>Note /10<input id="rating" type="number" min="0" max="10" step=".5"></label>
+      <label class="wide">Personnages<input id="characters" placeholder="Spider-Man, Venom…"></label>
+      <label class="wide">Mots-clés<input id="keywords" placeholder="Multivers, enquête, espace…"></label>
+      <label class="wide">Emplacement<input id="location" placeholder="Boîte 2 · Section B · Position 17"></label>
+      <label class="wide">Résumé<textarea id="summary"></textarea></label>
+      <label class="wide">Avis personnel<textarea id="review"></textarea></label>
+      <label class="check wide"><input id="favorite" type="checkbox"> ★ Ajouter aux favoris</label>
+    </div>
+    <div class="actions"><button type="button" id="deleteBtn" class="danger">Supprimer</button><button type="submit">Enregistrer</button></div>
+  </form>
+</dialog>
+
+<script src="app.js"></script>
+</body>
+</html>
