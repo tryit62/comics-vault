@@ -1,0 +1,32 @@
+<!doctype html><html lang="fr"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#090b10"><title>Comic Vault</title>
+<link rel="manifest" href="./manifest.webmanifest"><link rel="apple-touch-icon" href="./apple-touch-icon-180.png">
+<link rel="stylesheet" href="./style.css"></head><body>
+<header><b>COMIC <i>VAULT</i></b><button id="addTop">＋ Ajouter</button></header>
+<main>
+<section id="home" class="view active"><h1>Ma bibliothèque</h1><div class="stats"><div><b id="sTotal">0</b><span>Comics</span></div><div><b id="sRead">0</b><span>Lus</span></div><div><b id="sUnread">0</b><span>À lire</span></div><div><b id="sFav">0</b><span>Favoris</span></div></div><h2>Ajouts récents</h2><div id="recent" class="grid"></div></section>
+
+<section id="collection" class="view collectionView"><div id="collectionBackdrop" class="backdrop"></div><div class="head"><h1>Collection</h1><div><button id="carouselMode">◉ Carrousel</button><button id="gridMode" class="secondary">▦ Grille</button></div></div><div id="carouselWrap"><div id="carousel" class="carousel"></div><div id="carouselInfo"></div><p class="hint">Glisse à gauche ou à droite · touche la couverture centrale</p></div><div id="collectionGrid" class="grid" hidden></div></section>
+
+<section id="series" class="view"><div class="head"><div><h1>Séries</h1><p>Regroupées et classées par tome.</p></div></div><div class="tools"><input id="seriesSearch" placeholder="Rechercher une série…"><button id="missingSeries">✦ Séries à compléter</button></div><p id="seriesNote"></p><div id="seriesGrid" class="groups"></div><div id="seriesDetail" hidden></div></section>
+
+<section id="search" class="view"><h1>Recherche</h1><input id="q" class="bigSearch" placeholder="Titre, série, auteur, personnage, ISBN, boîte…"><div class="filters"><select id="fStatus"><option value="">Tous les statuts</option><option>À lire</option><option>En cours</option><option>Lu</option></select><select id="fFav"><option value="">Tous</option><option value="1">Favoris</option></select><select id="fSort"><option value="recent">Récents</option><option value="title">Titre A–Z</option><option value="series">Série / tome</option><option value="rating">Note</option></select></div><div id="searchGrid" class="grid"></div></section>
+
+<section id="boxes" class="view"><h1>Mes boîtes</h1><div id="boxesGrid" class="groups"></div></section>
+<section id="favorites" class="view"><h1>Favoris</h1><div id="favGrid" class="grid"></div></section>
+<section id="settings" class="view"><h1>Réglages</h1><div class="settingsCard"><h2>Sauvegarde</h2>
+<p>Les couvertures sont maintenant optimisées pour garder Comic Vault rapide.</p>
+<button id="exportBtn">Exporter</button><label class="import">Importer<input id="importFile" type="file" accept=".json,application/json"></label>
+<div id="importProgress" class="progressWrap" hidden><div class="progressBar"><span id="importProgressBar"></span></div><small id="importProgressText">Préparation…</small></div>
+</div></section>
+<section id="detail" class="view"><button id="backDetail" class="secondary">← Retour</button><div id="detailContent"></div></section>
+</main>
+
+<nav><button data-view="home" class="active">⌂<span>Accueil</span></button><button data-view="collection">▦<span>Collection</span></button><button data-view="series">▤<span>Séries</span></button><button data-view="search">⌕<span>Recherche</span></button><button id="more">•••<span>Plus</span></button></nav>
+<div id="moreMenu" class="more" hidden><button data-more="boxes">▣ Mes boîtes</button><button data-more="favorites">★ Favoris</button><button data-more="settings">⚙ Réglages</button></div>
+
+<dialog id="editor"><form id="form"><div class="head"><h2 id="formTitle">Ajouter un comics</h2><button type="button" id="close" class="secondary">✕</button></div><input id="comicId" type="hidden">
+<div class="formGrid"><label class="wide">Titre<input id="title" required></label><label>Série<input id="seriesField"></label><label>Tome / numéro<input id="issue"></label><label>Éditeur<input id="publisher"></label><label>Année<input id="year" inputmode="numeric"></label><label>ISBN / EAN<input id="isbn" inputmode="numeric"></label><label>Scénariste<input id="writer"></label><label>Dessinateur<input id="artist"></label><label>Statut<select id="status"><option>À lire</option><option>En cours</option><option>Lu</option></select></label><label>Note /10<input id="rating" type="number" min="0" max="10" step=".5"></label><label>Boîte<input id="box"></label><label>Position<input id="position"></label><label class="wide">Personnages<input id="characters"></label><label class="wide">Mots-clés<input id="keywords"></label><label>Arc narratif<input id="storyArc"></label><label>Collection éditoriale<input id="editorialCollection"></label><label class="wide">Emplacement libre<input id="location"></label><label class="wide">Résumé<textarea id="summary"></textarea></label><label class="wide">Mon avis<textarea id="review"></textarea></label><label class="wide">Couverture<input id="cover" type="file" accept="image/*"><img id="coverPreview"></label><label class="check wide"><input id="favorite" type="checkbox"> ★ Favori</label></div>
+<div class="actions"><button type="button" id="delete" class="danger">Supprimer</button><button type="submit">Enregistrer</button></div></form></dialog>
+<script src="./app.js"></script></body></html>
