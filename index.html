@@ -1,0 +1,82 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#090b10"><link rel="manifest" href="./manifest.webmanifest"><link rel="apple-touch-icon" href="./apple-touch-icon.png"><title>Comic Vault V5</title><link rel="stylesheet" href="./style.css?v=5.7"></head><body>
+<div class="vault-bg" aria-hidden="true"><div class="particles"></div><div class="grid-horizon"></div><div class="orb orb-a"></div><div class="orb orb-b"></div></div>
+<div id="tabTransition" class="tab-transition" aria-hidden="true"></div><div id="cinematicOverlay" class="cinematic-overlay" aria-hidden="true"><div class="cinematic-glow"></div><div class="cinematic-cover"></div><div class="cinematic-scan"></div></div><div id="boot" class="boot boot-vault" aria-hidden="true">
+  <div class="boot-topline">PERSONAL ARCHIVE // SECURE ACCESS</div>
+  <div class="boot-system"><i></i> VAULT ONLINE <span>LOCAL DATABASE</span></div>
+  <div class="boot-reactor">
+    <div class="boot-ring boot-r1"></div>
+    <div class="boot-ring boot-r2"></div>
+    <div class="boot-ring boot-r3"></div>
+    <div class="boot-ring boot-r4"></div>
+    <div class="boot-ticks"></div>
+    <div class="boot-sweep"></div>
+    <div class="boot-emblem">
+      <span class="boot-book left"></span>
+      <b>V</b>
+      <span class="boot-book right"></span>
+      <small>VAULT</small>
+    </div>
+  </div>
+  <div class="boot-title">COMIC <i>VAULT</i></div>
+  <div class="boot-subtitle">DIGITAL COLLECTION SYSTEM</div>
+  <small id="bootStatus">INITIALISATION DU VAULT…</small>
+  <div class="boot-progress"><i></i></div>
+  <div class="boot-footer"><span>SYSTEM // LOCAL</span><span>V5.5.2</span></div>
+</div>
+<header><div class="brand"><span class="brand-core">CV</span><b>COMIC <i>VAULT</i><small> V5.7</small></b></div><div class="sys-hud"><span><i class="pulse-dot"></i> LOCAL STORAGE // SECURE</span><time id="vaultClock">--:--</time></div><div class="topActions"><button id="quickAdd" class="secondary">⚡ Saisie rapide</button><button id="add">＋ Ajouter</button></div></header><main>
+<section id="home" class="view active"><div class="hero vault-command">
+<div class="hero-copy"><small class="eyebrow">PERSONAL ARCHIVE // SECURE ACCESS</small><h1>COMIC <em>VAULT</em></h1><p>Collection intelligence system</p><div class="hero-status"><span><i></i> VAULT ONLINE</span><span>LOCAL DATABASE</span><span id="heroEntries">— ENTRIES</span></div></div>
+<div class="vault-core" aria-hidden="true">
+<div class="core-orbit orbit-a"></div><div class="core-orbit orbit-b"></div><div class="core-orbit orbit-c"></div>
+<div class="core-ticks"></div><div class="core-scan"></div>
+<div class="core-mark"><span class="book-wing left"></span><b>V</b><span class="book-wing right"></span><small>VAULT</small></div>
+</div>
+<div class="command-data"><small>ARCHIVE STATUS</small><b>READY</b><span>ENCRYPTED LOCAL STORAGE</span></div>
+</div><div class="command-deck">
+<div class="hud-module status-module"><small>VAULT STATUS</small><b><i></i> ONLINE</b><span>CONNECTION SECURE</span></div>
+<div class="hud-module database-module"><small>LOCAL DATABASE</small><b id="deckEntries">—</b><span>COMICS ARCHIVED</span></div>
+<div class="hud-module archive-module"><small>ARCHIVE TYPE</small><b>PERSONAL</b><span>COLLECTION // PRIVATE</span></div>
+<div class="hud-module security-module"><small>SECURITY LEVEL</small><b>MAXIMUM</b><span>ENCRYPTED LOCAL VAULT</span></div>
+<div class="hud-module storage-module"><small>STORAGE STATUS</small><b>OPTIMAL</b><span>ALL SYSTEMS GO</span></div>
+<div class="hud-module system-module"><small>SYSTEM ID</small><b>CV-V5</b><span>COMIC VAULT ENGINE</span></div>
+</div>
+<div class="archive-ready"><small>ARCHIVE STATUS</small><strong>READY</strong><span>ALL SYSTEMS OPERATIONAL</span><div class="ready-dots"><i></i><i></i><i></i><i></i><i></i></div></div>
+<div class="vault-initialization"><small>VAULT INITIALIZATION</small><div><i></i></div><b>100%</b><span>◇ SECURE ACCESS GRANTED</span></div><div class="stats"><div><b id="total">0</b><span>Comics</span></div><div><b id="read">0</b><span>Lus</span></div><div><b id="unread">0</b><span>À lire</span></div><div><b id="fav">0</b><span>Favoris</span></div></div><h2>Ajouts récents</h2><div id="recent" class="grid"></div></section>
+<section id="collection" class="view"><div class="head"><h1>Collection</h1><div><button id="carMode">◉ Carrousel</button><button id="gridMode" class="secondary">▦ Grille</button></div></div><div id="carWrap" class="vault-stage"><div class="stage-lines"></div><div id="carousel" class="carousel"></div><div class="hud-frame" aria-hidden="true"><span class="hud tl"></span><span class="hud tr"></span><span class="hud bl"></span><span class="hud br"></span><small class="hud-label left">COLLECTION DATABASE</small><small class="hud-label right">VISUAL INDEX // ACTIVE</small></div><div id="carInfo"></div><p class="hint">Glisse à gauche ou à droite · touche la couverture centrale</p></div><div class="collectionTools">
+<select id="sort"><option value="recent">Ajouts récents</option><option value="title">Titre A–Z</option><option value="series">Série / tome</option><option value="year">Année</option><option value="rating">Meilleures notes</option></select>
+<select id="filterStatus"><option value="">Tous les statuts</option><option>À lire</option><option>En cours</option><option>Lu</option></select>
+<label class="miniCheck"><input id="filterFav" type="checkbox"> ★ Favoris</label></div><div id="collectionGrid" class="grid" hidden></div></section>
+<section id="series" class="view"><h1>Séries</h1><div class="tools"><input id="seriesQ" placeholder="Rechercher une série…"><button id="missing">✦ À compléter</button></div><p id="seriesNote"></p><div id="seriesGrid" class="groups"></div><div id="seriesDetail" hidden></div></section>
+<section id="search" class="view"><h1>Recherche</h1><input id="q" class="big" placeholder="Titre, série, auteur, personnage, boîte…"><div id="searchGrid" class="grid"></div></section>
+<section id="boxes" class="view"><h1>Mes boîtes</h1><div id="boxesGrid" class="groups"></div></section>
+<section id="favorites" class="view"><h1>Favoris</h1><div id="favGrid" class="grid"></div></section>
+<section id="settings" class="view"><h1>Réglages</h1>
+<div class="panel"><h2>Bibliothèque locale V5</h2><p id="localState">Vérification…</p>
+<button id="migrateBtn">Installer les 54 comics dans l’app</button>
+<div id="migrateProg" hidden><div class="bar"><span></span></div><small></small></div></div>
+<div class="panel"><h2>Sauvegarde portable</h2><p>Crée un fichier ZIP contenant collection.json + toutes les miniatures et couvertures.</p>
+<button id="exportZip">Exporter la sauvegarde ZIP</button>
+<label class="importBtn">Restaurer un ZIP<input id="restoreZip" type="file" accept=".zip,application/zip"></label>
+<div id="backupProg" hidden><div class="bar"><span></span></div><small></small></div></div>
+<div class="panel"><h2>Architecture</h2><p>Miniatures 240×360 pour les listes. Couvertures détaillées max. 1100×1650 uniquement à l’ouverture d’une fiche. Les nouvelles photos originales ne sont pas conservées.</p></div>
+</section>
+<section id="detail" class="view detail-view"><button id="back" class="secondary">← Retour</button><div id="detailBody"></div></section></main>
+<nav><button data-v="home" class="active">⌂<span>Accueil</span></button><button data-v="collection">▦<span>Collection</span></button><button data-v="series">▤<span>Séries</span></button><button data-v="search">⌕<span>Recherche</span></button><button id="more">•••<span>Plus</span></button></nav><div id="moreMenu" hidden><button data-more="boxes">▣ Mes boîtes</button><button data-more="favorites">★ Favoris</button><button data-more="settings">⚙ Réglages</button></div>
+<dialog id="editor"><form id="form"><div class="head"><h2 id="formTitle">Ajouter un comics</h2><button type="button" id="close" class="secondary">✕</button></div><input id="id" type="hidden"><div class="form"><label>Titre<input id="title" required></label><label>Série<input id="seriesField"></label><label>Tome / numéro<input id="issue"></label><label>Éditeur<input id="publisher"></label><label>Année<input id="year"></label><label>Scénariste<input id="writer"></label><label>Dessinateur<input id="artist"></label><label>Statut<select id="status"><option>À lire</option><option>En cours</option><option>Lu</option></select></label><label>Note /10<input id="rating" type="number" min="0" max="10" step=".5"></label><label>Nombre de pages<input id="pages" type="number" min="1" inputmode="numeric"></label><label>Boîte<input id="box"></label><label>Position<input id="position"></label><label class="wide">Personnages<input id="characters"></label><label class="wide">Mots-clés<input id="keywords"></label><label class="wide">Résumé<textarea id="summary"></textarea></label><label class="wide">Mon avis<textarea id="review"></textarea></label><label class="wide">Citation favorite<textarea id="quote" placeholder="Une phrase ou un passage que tu souhaites retenir…"></textarea></label><label class="wide coverChooser">Couverture
+<div class="photoButtons"><label class="photoBtn">📷 Prendre la photo<input id="cameraFile" type="file" accept="image/*" capture="environment"></label><label class="photoBtn secondaryPhoto">🖼️ Choisir dans Photos<input id="coverFile" type="file" accept="image/*"></label></div><img id="preview"></label><label class="wide check"><input id="favorite" type="checkbox"> ★ Favori</label></div><div class="actions"><button type="button" id="delete" class="danger">Supprimer</button><button type="submit">Enregistrer</button></div></form></dialog>
+<script src="./app.js?v=5.7"></script>
+<script>
+(() => {
+  const status = document.getElementById('bootStatus');
+  const steps = [
+    [250, 'INITIALISATION DU VAULT…'],
+    [900, 'CONNEXION À LA BIBLIOTHÈQUE LOCALE…'],
+    [1650, 'INDEXATION DES COLLECTIONS…'],
+    [2350, 'SYNCHRONISATION DES COUVERTURES…'],
+    [3050, 'ACCÈS AUTORISÉ // VAULT ONLINE']
+  ];
+  steps.forEach(([t, text]) => setTimeout(() => { if (status) status.textContent = text; }, t));
+})();
+</script>
+
+</body></html>
